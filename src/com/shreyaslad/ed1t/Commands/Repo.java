@@ -92,11 +92,18 @@ public class Repo {
                                     .setDirectory(file)
                                     .call();
                             System.out.println(FileHandler.getDirPath());
-                            String[] y = {FileHandler.getDirPath()};
-                            System.out.println(y[0]);
-                            Ed1t.main(y);
-                            frame.setVisible(false);
-                            Ed1t.toggleMain(true);
+//                            String[] y = {FileHandler.getDirPath()};
+//                            System.out.println(y[0]);
+//                            Ed1t.main(y);
+//                            frame.setVisible(false);
+//                            Ed1t.toggleMain(true);
+                            try {
+                                new Ed1t(FileHandler.getDirPath());
+                            } catch (IOException ex) {
+                                ex.printStackTrace();
+                            } catch (GitAPIException ex) {
+                                ex.printStackTrace();
+                            }
                             OS.setLastLogin(FileHandler.getDirPath());
                             // TODO: close this frame and call the main opener function to view the contents of the file
                         } catch (GitAPIException ex) {
@@ -167,15 +174,19 @@ public class Repo {
             openButton.setOpaque(true);
             openButton.setForeground(Color.WHITE);
             openButton.setBounds(230, 60, 160, 30);
-            openButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    Ed1t.toggleMain(true);
-                    String[] y = {FileHandler.getDirPath()};
-                    Ed1t.main(y);
-                    frame.setVisible(false);
-                    OS.setLastLogin(FileHandler.getDirPath());
+            openButton.addActionListener(e -> {
+//                    Ed1t.toggleMain(true);
+//                    String[] y = {FileHandler.getDirPath()};
+//                    Ed1t.main(y);
+                try {
+                    new Ed1t(FileHandler.getDirPath());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                } catch (GitAPIException ex) {
+                    ex.printStackTrace();
                 }
+                frame.setVisible(false);
+                OS.setLastLogin(FileHandler.getDirPath());
             });
 
             panel.add(dirChoose);
@@ -254,10 +265,17 @@ public class Repo {
                         File file = new File(FileHandler.getDirPath());
                         //FileRepositoryBuilder.create(new File(FileHandler.getDirPath() + "/.git"));
                         Git.init().setDirectory(file).call();
-                        String[] y = {FileHandler.getDirPath()};
+                        /*String[] y = {FileHandler.getDirPath()};
                         Ed1t.main(y); //open the thing
                         frame.setVisible(false);
-                        Ed1t.toggleMain(true);
+                        Ed1t.toggleMain(true);*/
+                        try {
+                            new Ed1t(FileHandler.getDirPath());
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        } catch (GitAPIException ex) {
+                            ex.printStackTrace();
+                        }
                         OS.setLastLogin(FileHandler.getDirPath());
                     } catch (GitAPIException ex) {
                         ex.printStackTrace();

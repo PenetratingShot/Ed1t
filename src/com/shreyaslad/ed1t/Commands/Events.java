@@ -95,96 +95,78 @@ public class Events {
 
     public static void createFirstStartWindow() {
 
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    UIManager.setLookAndFeel(new MaterialLookAndFeel());
-                } catch (UnsupportedLookAndFeelException e) {
-                    e.printStackTrace();
-                }
-
-                JFrame frame = new JFrame();
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setMinimumSize(new Dimension(600, 200));
-                frame.setResizable(false);
-                frame.setTitle("Ed1t");
-
-                JPanel panel = new JPanel();
-                panel.setOpaque(true);
-                panel.setLayout(null);
-
-                JLabel title = new JLabel("Hello There");
-                title.setFont(new Font("Sans Serif", Font.BOLD, 18));
-                title.setBounds(0, 0, 600, 30);
-                title.setHorizontalAlignment(JLabel.CENTER);
-                title.setHorizontalAlignment(JLabel.CENTER);
-
-                JLabel welcomeLabel = new JLabel("Clone a repository or Open one to get started");
-                welcomeLabel.setHorizontalAlignment(JLabel.CENTER);
-                welcomeLabel.setVerticalAlignment(JLabel.CENTER);
-                welcomeLabel.setFont(new Font("Sans Serif", Font.PLAIN, 12));
-                welcomeLabel.setBounds(5, 30, 600, 30);
-
-                JButton cloneRepo = new JButton("Clone from Remote");
-                cloneRepo.setOpaque(true);
-                cloneRepo.setBackground(MaterialColors.GRAY_600);
-                cloneRepo.setForeground(Color.WHITE);
-                cloneRepo.setBounds(15, 80, 165, 30);
-                cloneRepo.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        Repo.cloneRemote();
-                    }
-                });
-
-                JButton openRepo = new JButton("Open Local");
-                openRepo.setBackground(MaterialColors.GRAY_600);
-                openRepo.setOpaque(true);
-                openRepo.setForeground(Color.WHITE);
-                openRepo.setBounds(200, 80, 165, 30);
-                openRepo.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        Repo.openLocal();
-                    }
-                });
-
-                JButton createRepo = new JButton("Create");
-                createRepo.setBackground(MaterialColors.GRAY_600);
-                createRepo.setOpaque(true);
-                createRepo.setForeground(Color.WHITE);
-                createRepo.setBounds(390, 80, 165, 30);
-                createRepo.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        Repo.createLocal();
-                    }
-                });
-
-                //panel.setBackground(new Color(70, 70, 70));
-                /*Card card = new Card("hi");
-                card.setBounds(new Rectangle(5, 60, 50, 30));
-                card.setBackground(new Color(70, 70, 70));*/
-
-                panel.add(title);
-                panel.add(welcomeLabel);
-                panel.add(cloneRepo);
-                panel.add(openRepo);
-                panel.add(createRepo);
-
-                panel.setBackground(new Color(196, 196, 196));
-
-                setIsVisible(true);
-                if (isVisible) {
-                    frame.setVisible(true);
-                } else {
-                    frame.setVisible(false);
-                }
-
-                frame.add(panel);
-                frame.pack();
+        EventQueue.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(new MaterialLookAndFeel());
+            } catch (UnsupportedLookAndFeelException e) {
+                e.printStackTrace();
             }
+
+            JFrame frame = new JFrame();
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setMinimumSize(new Dimension(600, 200));
+            frame.setResizable(false);
+            frame.setTitle("Ed1t");
+
+            JPanel panel = new JPanel();
+            panel.setOpaque(true);
+            panel.setLayout(null);
+
+            JLabel title = new JLabel("Hello There");
+            title.setFont(new Font("Sans Serif", Font.BOLD, 18));
+            title.setBounds(0, 0, 600, 30);
+            title.setHorizontalAlignment(JLabel.CENTER);
+            title.setHorizontalAlignment(JLabel.CENTER);
+
+            JLabel welcomeLabel = new JLabel("Clone a repository or Open one to get started");
+            welcomeLabel.setHorizontalAlignment(JLabel.CENTER);
+            welcomeLabel.setVerticalAlignment(JLabel.CENTER);
+            welcomeLabel.setFont(new Font("Sans Serif", Font.PLAIN, 12));
+            welcomeLabel.setBounds(5, 30, 600, 30);
+
+            JButton cloneRepo = new JButton("Clone from Remote");
+            cloneRepo.setOpaque(true);
+            cloneRepo.setBackground(MaterialColors.GRAY_600);
+            cloneRepo.setForeground(Color.WHITE);
+            cloneRepo.setBounds(15, 80, 165, 30);
+            cloneRepo.addActionListener(e -> Repo.cloneRemote());
+
+            JButton openRepo = new JButton("Open Local");
+            openRepo.setBackground(MaterialColors.GRAY_600);
+            openRepo.setOpaque(true);
+            openRepo.setForeground(Color.WHITE);
+            openRepo.setBounds(200, 80, 165, 30);
+            openRepo.addActionListener(e -> Repo.openLocal());
+
+            JButton createRepo = new JButton("Create");
+            createRepo.setBackground(MaterialColors.GRAY_600);
+            createRepo.setOpaque(true);
+            createRepo.setForeground(Color.WHITE);
+            createRepo.setBounds(390, 80, 165, 30);
+            createRepo.addActionListener(e -> Repo.createLocal());
+
+            //panel.setBackground(new Color(70, 70, 70));
+            /*Card card = new Card("hi");
+            card.setBounds(new Rectangle(5, 60, 50, 30));
+            card.setBackground(new Color(70, 70, 70));*/
+
+            panel.add(title);
+            panel.add(welcomeLabel);
+            panel.add(cloneRepo);
+            panel.add(openRepo);
+            panel.add(createRepo);
+
+            panel.setBackground(new Color(196, 196, 196));
+
+            setIsVisible(true);
+            if (isVisible) {
+                frame.setVisible(true);
+            } else {
+                frame.setVisible(false);
+            }
+
+            frame.add(panel);
+            frame.pack();
         });
     }
 

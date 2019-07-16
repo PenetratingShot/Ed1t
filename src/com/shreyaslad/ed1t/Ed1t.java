@@ -82,6 +82,12 @@ public class Ed1t {
 
     public Ed1t(String dir) throws IOException, GitAPIException {
 
+        fileRoot = new File(FileHandler.getDirPath());
+        root = new DefaultMutableTreeNode(new FileNode(fileRoot));
+
+        CreateChildNodes ccn = new CreateChildNodes(fileRoot, root);
+        new Thread(ccn).start();
+
         try {
             UIManager.setLookAndFeel(new MaterialLookAndFeel());
         } catch (UnsupportedLookAndFeelException e) {
@@ -138,8 +144,7 @@ public class Ed1t {
         //c.weightx = 0.5;
         upPanel.add(pushButton);*/
 
-        fileRoot = new File(FileHandler.getDirPath());
-        root = new DefaultMutableTreeNode(new FileNode(fileRoot));
+        //moved fileRoot up
         treeModel = new DefaultTreeModel(root);
 
         tree = new JTree(treeModel);
@@ -494,18 +499,17 @@ public class Ed1t {
     public static void main(String[] args) {
         //OS.init(); debug mode on for now (and probably forever)
         Events.createFirstStartWindow();
-        // TODO: if first start, frame.setVisible(false), else frame.setVisible(true)
+        // TODO: if first start, frame.setVisible(false), else frame.setVisible(true) (never going to happen)
 
-        try {
+        /*try {
             new Ed1t(args[0]);
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (GitAPIException ex) {
             ex.printStackTrace();
-        }
+        }*/
 
-        CreateChildNodes ccn = new CreateChildNodes(fileRoot, root);
-        new Thread(ccn).start();
+        // Moved this process to Ed1t
     }
 
     public static void toggleMain(boolean b) {
