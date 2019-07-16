@@ -9,6 +9,7 @@
 package com.shreyaslad.ed1t;
 
 import com.shreyaslad.ed1t.Commands.Events;
+import com.shreyaslad.ed1t.Commands.OS;
 import com.shreyaslad.ed1t.Components.LineNumberingTextArea;
 import com.shreyaslad.ed1t.Components.PlaceholderTextField;
 import com.shreyaslad.ed1t.Components.Tree.CreateChildNodes;
@@ -480,9 +481,8 @@ public class Ed1t {
     }
 
     public static void main(String[] args) {
-        //OS.init(); debug mode on for now
-        Events.createFirstStartWindow();
-        // TODO: if first start, frame.setVisible(false), else frame.setVisible(true)
+        OS.init();
+        //Events.createFirstStartWindow();
 
         try {
             new Ed1t(args[0]);
