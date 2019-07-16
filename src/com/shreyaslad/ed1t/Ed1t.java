@@ -31,9 +31,11 @@ import com.shreyaslad.ed1t.Components.Tree.FileNode;
 import com.shreyaslad.ed1t.Data.FileContents;
 import com.shreyaslad.ed1t.Data.FileHandler;
 import com.shreyaslad.ed1t.Data.SelectedFile;
+
 import mdlaf.MaterialLookAndFeel;
 import mdlaf.animation.MaterialUIMovement;
 import mdlaf.utils.MaterialColors;
+
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Ref;
@@ -46,16 +48,20 @@ import javax.swing.text.BadLocationException;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 import java.util.List;
 
 public class Ed1t {
@@ -95,7 +101,7 @@ public class Ed1t {
         }
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setMinimumSize(new Dimension(730, 480));
+        frame.setMinimumSize(new Dimension(820, 512)); //minimum size possible to prevent everything from breaking :)
         frame.setVisible(true);
         frame.setTitle("Ed1t");
 
@@ -483,9 +489,9 @@ public class Ed1t {
         upPanel.add(branchBox);*/
 
 
-        Events.setIsVisible(false);
-        Events.setIsVisible(false);
-        Events.setIsVisible(false);
+        Events.setFirstStartWindowClose(false);
+        Events.setFirstStartWindowClose(false);
+        Events.setFirstStartWindowClose(false);
 
         MaterialUIMovement.add(refreshButton, MaterialColors.GRAY_500);
         MaterialUIMovement.add(openButton, MaterialColors.GRAY_500);
@@ -499,7 +505,6 @@ public class Ed1t {
     public static void main(String[] args) {
         //OS.init(); debug mode on for now (and probably forever)
         Events.createFirstStartWindow();
-        // TODO: if first start, frame.setVisible(false), else frame.setVisible(true) (never going to happen)
 
         /*try {
             new Ed1t(args[0]);

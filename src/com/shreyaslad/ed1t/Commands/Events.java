@@ -24,75 +24,73 @@ public class Events {
 
     // JFrame for committing things
     public static void createCommitFrame() {
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    UIManager.setLookAndFeel(new MaterialLookAndFeel());
-                } catch (UnsupportedLookAndFeelException e) {
-                    e.printStackTrace();
-                }
+        EventQueue.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(new MaterialLookAndFeel());
+            } catch (UnsupportedLookAndFeelException e) {
+                e.printStackTrace();
+            }
 
-                JFrame frame = new JFrame();
-                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                frame.setTitle("Committing Changes");
-                frame.setVisible(true);
-                frame.setMinimumSize(new Dimension(600, 220));
-                frame.setResizable(false);
+            JFrame frame = new JFrame();
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.setTitle("Committing Changes");
+            frame.setVisible(true);
+            frame.setMinimumSize(new Dimension(600, 220));
+            frame.setResizable(false);
 
-                JPanel panel = new JPanel();
-                panel.setLayout(null);
-                panel.setOpaque(true);
-                panel.setBackground(new Color(196, 196, 196));
+            JPanel panel = new JPanel();
+            panel.setLayout(null);
+            panel.setOpaque(true);
+            panel.setBackground(new Color(196, 196, 196));
 
-                JLabel titleLabel = new JLabel("Committing Changes");
-                titleLabel.setBounds(220, 0, 550, 40);
-                titleLabel.setFont(new Font("Sans Serif", Font.BOLD, 18));
+            JLabel titleLabel = new JLabel("Committing Changes");
+            titleLabel.setBounds(220, 0, 550, 40);
+            titleLabel.setFont(new Font("Sans Serif", Font.BOLD, 18));
 
-                PlaceholderTextField commitMessageField = new PlaceholderTextField("");
-                commitMessageField.setPlaceholder("Commit Message");
-                commitMessageField.setBounds(new Rectangle(10, 70, 570, 55));
+            PlaceholderTextField commitMessageField = new PlaceholderTextField("");
+            commitMessageField.setPlaceholder("Commit Message");
+            commitMessageField.setBounds(new Rectangle(10, 70, 570, 55));
 
-                JButton commitButton = new JButton("Commit");
-                commitButton.setOpaque(true);
-                commitButton.setBackground(MaterialColors.GRAY_600);
-                commitButton.setForeground(Color.WHITE);
-                commitButton.setBounds(475, 150, 100, 30);
-                commitButton.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (commitButton.getText().isEmpty()) {
-                            // ignore
-                        } else {
-                            try {
-                                Git git = Git.open(new File(FileHandler.getDirPath()));
+            JButton commitButton = new JButton("Commit");
+            commitButton.setOpaque(true);
+            commitButton.setBackground(MaterialColors.GRAY_600);
+            commitButton.setForeground(Color.WHITE);
+            commitButton.setBounds(475, 150, 100, 30);
+            commitButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (commitButton.getText().isEmpty()) {
+                        // ignore
+                    } else {
+                        try {
+                            Git git = Git.open(new File(FileHandler.getDirPath()));
 
-                                AddCommand add = git.add();
-                                add.addFilepattern(".").call();
+                            AddCommand add = git.add();
+                            add.addFilepattern(".").call();
 
-                                CommitCommand commit = git.commit();
-                                commit.setMessage(commitMessageField.getText()).call();
+                            CommitCommand commit = git.commit();
+                            commit.setMessage(commitMessageField.getText()).call();
 
-                                frame.dispose();
-                            } catch (GitAPIException ex) {
-                                ex.printStackTrace();
-                            } catch (IOException ex) {
-                                ex.printStackTrace();
-                            }
+                            frame.dispose();
+                        } catch (GitAPIException ex) {
+                            ex.printStackTrace();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
                         }
                     }
-                });
+                }
+            });
 
-                panel.add(titleLabel);
-                panel.add(commitMessageField);
-                panel.add(commitButton);
+            panel.add(titleLabel);
+            panel.add(commitMessageField);
+            panel.add(commitButton);
 
-                frame.add(panel);
-                frame.pack();
-            }
+            frame.add(panel);
+            frame.pack();
         });
     }
 
+    private static JFrame firstWindow = new JFrame();
     public static void createFirstStartWindow() {
 
         EventQueue.invokeLater(() -> {
@@ -102,11 +100,11 @@ public class Events {
                 e.printStackTrace();
             }
 
-            JFrame frame = new JFrame();
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setMinimumSize(new Dimension(600, 200));
-            frame.setResizable(false);
-            frame.setTitle("Ed1t");
+
+            firstWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            firstWindow.setMinimumSize(new Dimension(600, 200));
+            firstWindow.setResizable(false);
+            firstWindow.setTitle("Ed1t");
 
             JPanel panel = new JPanel();
             panel.setOpaque(true);
@@ -158,15 +156,10 @@ public class Events {
 
             panel.setBackground(new Color(196, 196, 196));
 
-            setIsVisible(true);
-            if (isVisible) {
-                frame.setVisible(true);
-            } else {
-                frame.setVisible(false);
-            }
+            firstWindow.setVisible(true);
 
-            frame.add(panel);
-            frame.pack();
+            firstWindow.add(panel);
+            firstWindow.pack();
         });
     }
 
@@ -222,8 +215,13 @@ public class Events {
         pushWindowFrame.pack();
     }
 
-    public static void setIsVisible(boolean b) {
-        isVisible = b;
+    public static void setFirstStartWindowClose(boolean b) {
+        if (b) {
+            firstWindow.setVisible(false);
+            firstWindow.dispose();
+        } else {
+            //nothing
+        }
     }
 
     public static void closePushWindow() {
