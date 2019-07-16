@@ -1,3 +1,10 @@
+/*
+ * Components/Card.java
+ * Copyright Shreyas Lad (PenetratingShot) 2019
+ *
+ * Deprecated class. Replaced in favor of buttons :c
+ */
+
 package com.shreyaslad.ed1t.Components;
 
 import javax.swing.*;

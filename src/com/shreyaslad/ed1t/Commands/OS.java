@@ -14,8 +14,12 @@ public class OS {
     private static boolean isFirstLaunch;
 
     private static File winLock = new File("C:/.ed1t/repo");
-    private static File macLock = new File("/Users/" + username + "/Library/Application Support/.edit/repo");
+    private static File macLock = new File("/Users/" + username + "/Library/Application Support/edit/repo");
 
+    /*
+     * This code is wrong. The switch case does not work since "win" and "mac" are not the only things in the returned string.
+     * Since this function is not being called anyway, it doesn't actually matter
+     */
     @SuppressWarnings("Duplicates")
     public static void init() { //not calling this yet for debugging purposes
         switch (OS) {

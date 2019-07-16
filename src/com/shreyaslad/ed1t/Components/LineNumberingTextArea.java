@@ -24,7 +24,7 @@ public class LineNumberingTextArea extends JTextArea {
         int caretPosition = textArea.getDocument().getLength();
         Element root = textArea.getDocument().getDefaultRootElement();
         StringBuilder lineNumbersTextBuilder = new StringBuilder();
-        lineNumbersTextBuilder.append("~\n~\n~\n").append("1").append(System.lineSeparator());
+        lineNumbersTextBuilder.append("~\n~\n~\n\n").append("1").append(System.lineSeparator());
 
         for (int elementIndex = 2; elementIndex < root.getElementIndex(caretPosition) - 1; elementIndex++) {
             lineNumbersTextBuilder.append(elementIndex).append(System.lineSeparator());

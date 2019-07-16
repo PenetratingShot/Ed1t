@@ -3,7 +3,22 @@
  * Copyright Shreyas Lad (PenetratingShot) 2019
  *
  * Main file for creating the main frame
- * Honestly I don't even know if the first start thing will even work.
+ * Honestly I don't even know if the first start thing will even work. (Shreyas from Future: It doesn't)
+ *
+ * Good luck
+ */
+
+
+/*
+ * Things changed from pseudocode:
+ *
+ * - First Start didn't quite work
+ *  - The file was being read and all, but JGit wasn't recognizing the directory as a valid git repository
+ *  - I couldn't find a way to get around this unless I fundamentally reworked all of the code, which I obviously did not have time to do
+ *  - So for now, the OS detection code will still be there, it just wont be implemented
+ * - Tree Refresh
+ *  - Instead of having to refresh the entire panel, nodes are dynamically added, renamed removed when a file is operated upon
+ *  - Then it refreshes only the parent node of the child node that was modified, but not all of the child nodes inside of the child node inside of the parent node
  */
 
 package com.shreyaslad.ed1t;
@@ -157,90 +172,87 @@ public class Ed1t {
                         JMenuItem itemDelete = new JMenuItem("Delete");
                         JMenuItem itemAdd = new JMenuItem("Add");
 
-                        itemRename.addActionListener(e1 -> {
+                        itemRename.addActionListener(e1 -> EventQueue.invokeLater(() -> { //super cool lambda :)
+                            try {
+                                UIManager.setLookAndFeel(new MaterialLookAndFeel());
+                            } catch (UnsupportedLookAndFeelException e11) {
+                                e11.printStackTrace();
+                            }
 
-                            EventQueue.invokeLater(() -> {
-                                try {
-                                    UIManager.setLookAndFeel(new MaterialLookAndFeel());
-                                } catch (UnsupportedLookAndFeelException e11) {
-                                    e11.printStackTrace();
-                                }
+                            System.out.println("[DEBUG] Rename file: " + SelectedFile.getSelectedFilePath());
+                            Path source = Paths.get(SelectedFile.getSelectedFilePath());
 
-                                System.out.println("[DEBUG] Rename file: " + SelectedFile.getSelectedFilePath());
-                                Path source = Paths.get(SelectedFile.getSelectedFilePath());
+                            JFrame renameFrame = new JFrame();
+                            renameFrame.setVisible(true);
+                            renameFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                            renameFrame.setTitle("Rename");
+                            renameFrame.setMinimumSize(new Dimension(600, 280));
+                            renameFrame.setResizable(false);
 
-                                JFrame renameFrame = new JFrame();
-                                renameFrame.setVisible(true);
-                                renameFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                                renameFrame.setTitle("Rename");
-                                renameFrame.setMinimumSize(new Dimension(600, 280));
-                                renameFrame.setResizable(false);
+                            JPanel renamePanel = new JPanel();
+                            renamePanel.setLayout(null);
+                            renamePanel.setBackground(new Color(196, 196, 196));
+                            renamePanel.setOpaque(true);
 
-                                JPanel renamePanel = new JPanel();
-                                renamePanel.setLayout(null);
-                                renamePanel.setBackground(new Color(196, 196, 196));
-                                renamePanel.setOpaque(true);
+                            PlaceholderTextField renameField = new PlaceholderTextField();
+                            renameField.setPlaceholder("New Name");
+                            renameField.setBounds(10, 70, 570, 55);
 
-                                PlaceholderTextField renameField = new PlaceholderTextField();
-                                renameField.setPlaceholder("New Name");
-                                renameField.setBounds(10, 70, 570, 55);
+                            JButton renameButton = new JButton("Rename");
+                            renameButton.setBounds(475, 150, 100, 30);
+                            renameButton.setOpaque(true);
+                            renameButton.setBackground(MaterialColors.GRAY_600);
+                            renameButton.setForeground(Color.WHITE);
+                            renameButton.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e11) {
+                                    File origFile = new File(SelectedFile.getSelectedFilePath());
 
-                                JButton renameButton = new JButton("Rename");
-                                renameButton.setBounds(475, 150, 100, 30);
-                                renameButton.setOpaque(true);
-                                renameButton.setBackground(MaterialColors.GRAY_600);
-                                renameButton.setForeground(Color.WHITE);
-                                renameButton.addActionListener(new ActionListener() {
-                                    @Override
-                                    public void actionPerformed(ActionEvent e11) {
-                                        File origFile = new File(SelectedFile.getSelectedFilePath());
+                                    String[] array = SelectedFile.getSelectedFilePath().split("/");
+                                    array[array.length - 1] = "";
+                                    array[array.length - 1] = renameField.getText();
 
-                                        String[] array = SelectedFile.getSelectedFilePath().split("/");
-                                        array[array.length - 1] = "";
-                                        array[array.length - 1] = renameField.getText();
+                                    String path1 = String.join("/", array);
+                                    SelectedFile.setSelectedFilePath(path1);
 
-                                        String path1 = String.join("/", array);
-                                        SelectedFile.setSelectedFilePath(path1);
+                                    DefaultMutableTreeNode node = (DefaultMutableTreeNode) path.getLastPathComponent();
+                                    node.setUserObject(renameField.getText());
 
-                                        DefaultMutableTreeNode node = (DefaultMutableTreeNode) path.getLastPathComponent();
-                                        node.setUserObject(renameField.getText());
+                                    boolean didRename = origFile.renameTo(new File(path1));
 
-                                        boolean didRename = origFile.renameTo(new File(path1));
-
-                                        /*StringBuilder stringBuilder = new StringBuilder();
-                                        try (Stream<String> stream = Files.lines(Paths.get(SelectedFile.getSelectedFilePath()), StandardCharsets.UTF_8)) {
-                                            stream.forEach(s -> stringBuilder.append(s).append("\n"));
-                                        } catch (IOException ex) {
-                                            ex.printStackTrace();
-                                        }
-
-                                        try {
-                                            FileWriter fileWriter = new FileWriter(newFile);
-                                            fileWriter.write(stringBuilder.toString());
-                                            fileWriter.close();
-
-                                            boolean didDelete = origFile.delete(); //Die
-
-                                            if (didDelete) {
-                                                System.out.println("Successfully deleted original file");
-                                            } else {
-                                                System.out.println("Could not delete original file");
-                                            }
-                                        } catch (IOException ex) {
-                                            ex.printStackTrace();
-                                        }*/
-
-                                        renameFrame.setVisible(false);
+                                    /*StringBuilder stringBuilder = new StringBuilder();
+                                    try (Stream<String> stream = Files.lines(Paths.get(SelectedFile.getSelectedFilePath()), StandardCharsets.UTF_8)) {
+                                        stream.forEach(s -> stringBuilder.append(s).append("\n"));
+                                    } catch (IOException ex) {
+                                        ex.printStackTrace();
                                     }
-                                });
 
-                                renamePanel.add(renameField);
-                                renamePanel.add(renameButton);
+                                    try {
+                                        FileWriter fileWriter = new FileWriter(newFile);
+                                        fileWriter.write(stringBuilder.toString());
+                                        fileWriter.close();
 
-                                renameFrame.add(renamePanel);
-                                renameFrame.pack();
+                                        boolean didDelete = origFile.delete(); //Die
+
+                                        if (didDelete) {
+                                            System.out.println("Successfully deleted original file");
+                                        } else {
+                                            System.out.println("Could not delete original file");
+                                        }
+                                    } catch (IOException ex) {
+                                        ex.printStackTrace();
+                                    }*/
+
+                                    renameFrame.setVisible(false);
+                                }
                             });
-                        });
+
+                            renamePanel.add(renameField);
+                            renamePanel.add(renameButton);
+
+                            renameFrame.add(renamePanel);
+                            renameFrame.pack();
+                        }));
 
                         itemDelete.addActionListener(e112 -> {
                             File file = new File(SelectedFile.getSelectedFilePath());
@@ -480,7 +492,7 @@ public class Ed1t {
     }
 
     public static void main(String[] args) {
-        //OS.init(); debug mode on for now
+        //OS.init(); debug mode on for now (and probably forever)
         Events.createFirstStartWindow();
         // TODO: if first start, frame.setVisible(false), else frame.setVisible(true)
 
