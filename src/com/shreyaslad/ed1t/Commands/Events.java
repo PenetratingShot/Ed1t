@@ -72,9 +72,7 @@ public class Events {
                             commit.setMessage(commitMessageField.getText()).call();
 
                             frame.dispose();
-                        } catch (GitAPIException ex) {
-                            ex.printStackTrace();
-                        } catch (IOException ex) {
+                        } catch (IOException | GitAPIException ex) {
                             ex.printStackTrace();
                         }
                     }

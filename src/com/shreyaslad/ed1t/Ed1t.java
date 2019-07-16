@@ -105,7 +105,7 @@ public class Ed1t {
         frame.setVisible(true);
         frame.setTitle("Ed1t");
 
-        List<Ref> call = git.branchList().call();
+        List<Ref> call = git.branchList().call(); //shouldn't need this but doesn't hut to have it :/
 
         JPanel upPanel = new JPanel();
 
@@ -299,7 +299,6 @@ public class Ed1t {
                                     ex.printStackTrace();
                                 }
                                 System.out.println(String.join("/", array));
-                                return;
                             }
                         });
 
@@ -419,9 +418,7 @@ public class Ed1t {
                         fileWriter.write(area.getText());
                         fileWriter.close();
                         System.out.println("[DEBUG] Successfully wrote to file");
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    } catch (BadLocationException ex) {
+                    } catch (IOException | BadLocationException ex) {
                         ex.printStackTrace();
                     }
                 }
@@ -443,9 +440,7 @@ public class Ed1t {
                 new Ed1t(dir);
                 mainWindow.setVisible(true);
                 frame.setVisible(true);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            } catch (GitAPIException ex) {
+            } catch (IOException | GitAPIException ex) {
                 ex.printStackTrace();
             }
         });

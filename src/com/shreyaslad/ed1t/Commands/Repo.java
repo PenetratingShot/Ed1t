@@ -99,9 +99,7 @@ public class Repo {
 //                            Ed1t.toggleMain(true);
                             try {
                                 new Ed1t(FileHandler.getDirPath());
-                            } catch (IOException ex) {
-                                ex.printStackTrace();
-                            } catch (GitAPIException ex) {
+                            } catch (IOException | GitAPIException ex) {
                                 ex.printStackTrace();
                             }
                             OS.setLastLogin(FileHandler.getDirPath());
@@ -180,9 +178,7 @@ public class Repo {
 //                    Ed1t.main(y);
                 try {
                     new Ed1t(FileHandler.getDirPath());
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                } catch (GitAPIException ex) {
+                } catch (IOException | GitAPIException ex) {
                     ex.printStackTrace();
                 }
                 frame.setVisible(false);
@@ -271,9 +267,7 @@ public class Repo {
                         Ed1t.toggleMain(true);*/
                         try {
                             new Ed1t(FileHandler.getDirPath());
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        } catch (GitAPIException ex) {
+                        } catch (IOException | GitAPIException ex) {
                             ex.printStackTrace();
                         }
                         OS.setLastLogin(FileHandler.getDirPath());

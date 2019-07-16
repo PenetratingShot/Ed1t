@@ -2,6 +2,7 @@ package com.shreyaslad.ed1t.Commands;
 
 import com.shreyaslad.ed1t.Data.FileHandler;
 import com.shreyaslad.ed1t.Ed1t;
+import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
 
 import java.io.*;
@@ -41,11 +42,7 @@ public class OS {
 
                         String result = str.toString();
                         new Ed1t(result);
-                    } catch (FileNotFoundException ex) {
-                        ex.printStackTrace();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    } catch (GitAPIException ex) {
+                    } catch (IOException | GitAPIException ex) {
                         ex.printStackTrace();
                     }
 
@@ -80,9 +77,7 @@ public class OS {
 
                         String result = str.toString();
                         new Ed1t(result);
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    } catch (GitAPIException ex) {
+                    } catch (IOException | GitAPIException ex) {
                         ex.printStackTrace();
                     }
                 } else {
