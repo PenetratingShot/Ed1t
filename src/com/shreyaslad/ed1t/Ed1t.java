@@ -30,6 +30,7 @@ import com.shreyaslad.ed1t.Components.Tree.CreateChildNodes;
 import com.shreyaslad.ed1t.Components.Tree.FileNode;
 import com.shreyaslad.ed1t.Data.FileContents;
 import com.shreyaslad.ed1t.Data.FileHandler;
+import com.shreyaslad.ed1t.Data.RemoteList;
 import com.shreyaslad.ed1t.Data.SelectedFile;
 
 import mdlaf.MaterialLookAndFeel;
@@ -37,9 +38,11 @@ import mdlaf.animation.MaterialUIMovement;
 import mdlaf.utils.MaterialColors;
 
 import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.api.PullResult;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.lib.StoredConfig;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -82,6 +85,8 @@ public class Ed1t {
     private static JButton openButton = new JButton("Open");
     private static JButton saveButton = new JButton("Save");
     private static JButton commitButton = new JButton("Commit");
+    private static JButton pullButton = new JButton("Pull");
+    private static JButton configButton = new JButton("Config");
 
     Git git = Git.open(new File(FileHandler.getDirPath())); // this saved my life
     Repository repository = git.getRepository();
@@ -101,7 +106,7 @@ public class Ed1t {
         }
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.setMinimumSize(new Dimension(820, 512)); //minimum size possible to prevent everything from breaking :)
+        frame.setMinimumSize(new Dimension(821, 516)); //minimum size possible to prevent everything from breaking :)
         frame.setVisible(true);
         frame.setTitle("Ed1t");
 
@@ -320,7 +325,8 @@ public class Ed1t {
         c.gridy = 1;
         /*c.weightx = 0.0;
         c.weighty = 1;*/
-        c.weighty = 0.3;
+        c.fill = GridBagConstraints.VERTICAL;
+        c.weighty = 1;
 
         mainWindow.add(scrollPane, c);
         mainWindow.setBackground(MaterialColors.GRAY_600);
@@ -329,6 +335,7 @@ public class Ed1t {
         c.gridx = 0;
         c.gridy = 0;
         c.gridwidth = 3;
+        c.weighty = 0;
         c.fill = GridBagConstraints.HORIZONTAL;
         mainWindow.add(upPanel, c);
         JTextArea area = new JTextArea();
@@ -359,7 +366,7 @@ public class Ed1t {
         c.gridy = 1;
         c.weightx = 0.65;
         c.weighty = 1;
-        c.fill = GridBagConstraints.HORIZONTAL;
+        c.fill = GridBagConstraints.BOTH;
         mainWindow.add(ideScrollPane, c);
 
         JPanel labelPanel = new JPanel();
@@ -450,38 +457,64 @@ public class Ed1t {
         c.gridy = 0;
         upPanel.add(refreshButton);
 
+        pullButton.setOpaque(true);
+        pullButton.setBackground(MaterialColors.GRAY_600);
+        pullButton.setForeground(Color.WHITE);
+        pullButton.addActionListener(e -> {
+            String string;
 
-/*
-        //Using branches is too complicated, and is just not going to be implemented :C
+            if (RemoteList.getSelectedRemote() == null) {
+                string = null;
+            } else {
+                string = RemoteList.getSelectedRemote();
+            }
 
-        //everything working with branchBox has to go into this try catch
-        String[] _default = {"Edit"};
-        branchBox = new JComboBox(); //no point in adding the array here since it's going to get deleted anyway
+            String s = (String) JOptionPane.showInputDialog(frame, "Remote URL", "Pull From Remote", JOptionPane.PLAIN_MESSAGE, null, null, string);
 
-        branchBox.removeAllItems();
+            if ((s != null) && s.length() > 0) {
+                StoredConfig config = git.getRepository().getConfig();
+                config.setString("remote", "origin", "url", s);
+                try {
+                    config.save();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
+                RemoteList.setSelectedRemote(s);
+                try {
+                    PullResult result = git.pull()
+                            .setRemote("origin")
+                            .setRemoteBranchName("master")
+                            .call();
+                    if (result.isSuccessful()) {
+                        System.out.println("Pull successful");
+                        root.removeAllChildren(); // remove all of the children if the pull went through
+                        treeModel.reload();
+                        new Thread(new CreateChildNodes(fileRoot, root)).start(); //recreate the child nodes just in case there have been any changes
+                    } else {
+                        System.out.println("Pull was not successful");
+                    }
+                } catch (GitAPIException ex) {
+                    ex.printStackTrace();
+                }
+            } else {
+
+            }
+        });
+        c.gridx = 6;
+        c.gridy = 0;
+        upPanel.add(pullButton, c);
+
+        /*branchBox = new JComboBox();
         for (Ref ref : call) {
             branchBox.addItem(ref.getName());
         }
+        branchBox.addItem("Edit Branches");
+        branchBox.setSelectedIndex(0);
 
-        for (String value : _default) {
-            branchBox.addItem(value);
-        }
-
-            branchBox.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    String source = e.getSource().toString();
-
-                    if (e.getSource() == "Edit") {
-                        JOptionPane.showMessageDialog(frame, "This is the editing branches screen"); //Edit or rename option
-                    } else {
-                        git.checkout().setName(source);
-                        area.setText();
-                    }
-                }
-            });
-
-        upPanel.add(branchBox);*/
+        c.gridx = 7;
+        c.gridy = 0;
+        upPanel.add(branchBox, c);*/
 
 
         Events.setFirstStartWindowClose(false);
@@ -492,6 +525,8 @@ public class Ed1t {
         MaterialUIMovement.add(openButton, MaterialColors.GRAY_500);
         MaterialUIMovement.add(saveButton, MaterialColors.GRAY_500);
         MaterialUIMovement.add(commitButton, MaterialColors.GRAY_500);
+        MaterialUIMovement.add(pullButton, MaterialColors.GRAY_500);
+        MaterialUIMovement.add(configButton, MaterialColors.GRAY_500);
 
         frame.add(mainWindow);
         frame.pack();

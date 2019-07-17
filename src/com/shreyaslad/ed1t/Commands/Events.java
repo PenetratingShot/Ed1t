@@ -2,6 +2,7 @@ package com.shreyaslad.ed1t.Commands;
 
 import com.shreyaslad.ed1t.Components.PlaceholderTextField;
 import com.shreyaslad.ed1t.Data.FileHandler;
+import com.shreyaslad.ed1t.Data.RemoteList;
 import mdlaf.MaterialLookAndFeel;
 import mdlaf.utils.MaterialColors;
 import org.eclipse.jgit.api.AddCommand;
@@ -225,4 +226,48 @@ public class Events {
     public static void closePushWindow() {
         pushWindowFrame.dispose();
     }
+
+    /*
+
+    This is not in the pseudocode. It originally was but then I completely scrapped the idea
+
+    public static void createConfigWindow() {
+        EventQueue.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(new MaterialLookAndFeel());
+            } catch (UnsupportedLookAndFeelException e) {
+                e.printStackTrace();
+            }
+
+            JFrame configFrame = new JFrame();
+            configFrame.setTitle("Config");
+            configFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            configFrame.setMinimumSize(new Dimension(600, 400));
+            configFrame.setResizable(false);
+            configFrame.setVisible(true);
+
+            JPanel panel = new JPanel();
+            GroupLayout layout = new GroupLayout(configFrame.getContentPane());
+            panel.setLayout(layout);
+            layout.setAutoCreateGaps(true);
+
+            JLabel remoteLabel = new JLabel("Default Remote");
+            JComboBox comboBox = new JComboBox();
+            for (int i = 0; i < RemoteList.size(); i++) {
+                comboBox.addItem(RemoteList.get(i));
+            }
+            JTextField remoteURL = new JTextField(RemoteList.get(comboBox.getSelectedIndex()));
+            JButton updateButton = new JButton("Update");
+            updateButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    RemoteList.addRemotes((String) comboBox.getSelectedItem(), remoteURL.getText());
+                }
+            });
+
+
+            configFrame.add(panel);
+            configFrame.pack();
+        });
+    }*/
 }
