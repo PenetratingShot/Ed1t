@@ -33,8 +33,5 @@ public class SelectedFile {
         }
         return null;
     }
-
-    public static void setFileConents(String text) {
-
-    }
 }
+

@@ -36,27 +36,27 @@ public class Events {
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.setTitle("Committing Changes");
             frame.setVisible(true);
-            frame.setMinimumSize(new Dimension(600, 220));
+            frame.setMinimumSize(new Dimension(600, 160));
             frame.setResizable(false);
 
             JPanel panel = new JPanel();
             panel.setLayout(null);
             panel.setOpaque(true);
-            panel.setBackground(new Color(196, 196, 196));
+            panel.setBackground(new Color(41, 41, 41));
 
-            JLabel titleLabel = new JLabel("Committing Changes");
+            /*JLabel titleLabel = new JLabel("Committing Changes");
             titleLabel.setBounds(220, 0, 550, 40);
-            titleLabel.setFont(new Font("Sans Serif", Font.BOLD, 18));
+            titleLabel.setFont(new Font("Sans Serif", Font.BOLD, 18));*/
 
             PlaceholderTextField commitMessageField = new PlaceholderTextField("");
             commitMessageField.setPlaceholder("Commit Message");
-            commitMessageField.setBounds(new Rectangle(10, 70, 570, 55));
+            commitMessageField.setBounds(new Rectangle(10, 10, 570, 55));
 
             JButton commitButton = new JButton("Commit");
             commitButton.setOpaque(true);
             commitButton.setBackground(MaterialColors.GRAY_600);
             commitButton.setForeground(Color.WHITE);
-            commitButton.setBounds(475, 150, 100, 30);
+            commitButton.setBounds(475, 90, 100, 30);
             commitButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -79,8 +79,6 @@ public class Events {
                     }
                 }
             });
-
-            panel.add(titleLabel);
             panel.add(commitMessageField);
             panel.add(commitButton);
 
@@ -153,7 +151,9 @@ public class Events {
             panel.add(openRepo);
             panel.add(createRepo);
 
-            panel.setBackground(new Color(196, 196, 196));
+            title.setForeground(new Color(228, 228, 228));
+            welcomeLabel.setForeground(new Color(228, 228, 228));
+            panel.setBackground(new Color(41, 41, 41));
 
             firstWindow.setVisible(true);
 

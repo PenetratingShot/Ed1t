@@ -5,7 +5,7 @@
  * Main file for creating the main frame
  * Honestly I don't even know if the first start thing will even work. (Shreyas from Future: It doesn't)
  *
- * Good luck
+ * Good luck reading this. I forgot what half the code does already
  */
 
 
@@ -47,8 +47,11 @@ import org.eclipse.jgit.lib.StoredConfig;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.plaf.ColorUIResource;
 import javax.swing.text.BadLocationException;
+import javax.swing.text.Element;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
 
@@ -68,7 +71,6 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Ed1t {
-
     private static DefaultMutableTreeNode root;
     private static DefaultTreeModel treeModel;
     private static JTree tree;
@@ -86,7 +88,6 @@ public class Ed1t {
     private static JButton saveButton = new JButton("Save");
     private static JButton commitButton = new JButton("Commit");
     private static JButton pullButton = new JButton("Pull");
-    private static JButton configButton = new JButton("Config");
 
     Git git = Git.open(new File(FileHandler.getDirPath())); // this saved my life
     Repository repository = git.getRepository();
@@ -318,6 +319,17 @@ public class Ed1t {
 
         tree.setShowsRootHandles(true);
         scrollPane = new JScrollPane(tree);
+        tree.setBackground(new Color(41, 41, 41));
+        tree.setBorder(null);
+        tree.setForeground(new Color(228, 228, 228));
+        DefaultTreeCellRenderer renderer = (DefaultTreeCellRenderer) tree.getCellRenderer();
+        //renderer.setBackground(new Color(41, 41, 41));
+        //renderer.setForeground(new Color(228, 228, 228));
+        renderer.setBackgroundNonSelectionColor(new Color(41, 41, 41));
+        renderer.setTextNonSelectionColor(new Color(228, 228, 228));
+        renderer.setBackgroundSelectionColor(new Color(61, 61, 61));
+        renderer.setTextSelectionColor(new Color(228, 228, 228));
+        renderer.setBorderSelectionColor(new Color(61,61,61));
 
         //scrollPane.setPreferredSize(new Dimension(300, 400));
         scrollPane.setPreferredSize(new Dimension(320, 450));
@@ -338,7 +350,13 @@ public class Ed1t {
         c.weighty = 0;
         c.fill = GridBagConstraints.HORIZONTAL;
         mainWindow.add(upPanel, c);
-        JTextArea area = new JTextArea();
+        JEditorPane area = new JEditorPane();
+        area.setFont(new Font("Sans Serif", Font.PLAIN, 12));
+        area.setBackground(Color.DARK_GRAY);
+        area.setForeground(new Color(239, 239, 239));
+        area.setCaretColor(Color.WHITE);
+        area.setBorder(null);
+        area.setEditable(false);
         LineNumberingTextArea lineNumberingTextArea = new LineNumberingTextArea(area);
         // area.setPreferredSize(new Dimension(300, 300));
 
@@ -385,6 +403,9 @@ public class Ed1t {
             public void mouseClicked(MouseEvent e) {
                 TreePath tp = tree.getPathForLocation(e.getX(), e.getY());
                 if (tp != null) {
+
+                    area.setEditable(true);
+
                     String tpString = tp.toString();
                     fileLabel.setText(tpString);
                     String format = tpString.substring(1, tpString.length() - 1);
@@ -420,8 +441,14 @@ public class Ed1t {
                     try {
                         FileWriter fileWriter = new FileWriter(SelectedFile.getSelectedFilePath());
 
-                        int end = area.getLineEndOffset(0);
-                        area.replaceRange("", 0, end);
+                        /*int end = area.getLineEndOffset(0);
+                        area.replaceRange("", 0, end);*/
+
+                        Element root = area.getDocument().getDefaultRootElement();
+                        Element firstLine = root.getElement(0);
+                        Element secondLine = root.getElement(1);
+                        area.getDocument().remove(firstLine.getStartOffset(), firstLine.getEndOffset());
+                        area.getDocument().remove(secondLine.getStartOffset(), secondLine.getEndOffset());
                         fileWriter.write(area.getText());
                         fileWriter.close();
                         System.out.println("[DEBUG] Successfully wrote to file");
@@ -440,16 +467,7 @@ public class Ed1t {
         refreshButton.setBackground(MaterialColors.GRAY_600);
         refreshButton.setForeground(Color.WHITE);
         refreshButton.addActionListener(e -> {
-            mainWindow.setVisible(false);
-            frame.setVisible(false);
-            frame.dispose();
-            try {
-                new Ed1t(dir);
-                mainWindow.setVisible(true);
-                frame.setVisible(true);
-            } catch (IOException | GitAPIException ex) {
-                ex.printStackTrace();
-            }
+            new Thread(ccn).start();
         });
         c.gridx = 0;
         //c.weightx = 0.5;
@@ -526,7 +544,6 @@ public class Ed1t {
         MaterialUIMovement.add(saveButton, MaterialColors.GRAY_500);
         MaterialUIMovement.add(commitButton, MaterialColors.GRAY_500);
         MaterialUIMovement.add(pullButton, MaterialColors.GRAY_500);
-        MaterialUIMovement.add(configButton, MaterialColors.GRAY_500);
 
         frame.add(mainWindow);
         frame.pack();

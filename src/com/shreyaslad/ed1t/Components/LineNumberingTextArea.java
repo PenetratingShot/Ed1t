@@ -2,16 +2,22 @@ package com.shreyaslad.ed1t.Components;
 
 import javax.swing.*;
 import javax.swing.text.Element;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
 
 public class LineNumberingTextArea extends JTextArea {
 
-    private JTextArea textArea;
+    private JEditorPane textArea;
 
-    public LineNumberingTextArea(JTextArea textArea) {
+    public LineNumberingTextArea(JEditorPane textArea) {
         this.textArea = textArea;
-        setBackground(Color.LIGHT_GRAY);
-        setForeground(new Color(26, 26, 26));
+        setBackground(new Color(105, 105, 105));
+        setForeground(new Color(239, 239, 239));
+
+        SimpleAttributeSet center = new SimpleAttributeSet();
+        StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
         setEditable(false);
     }
 

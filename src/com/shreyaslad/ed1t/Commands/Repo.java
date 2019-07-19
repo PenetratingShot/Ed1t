@@ -137,7 +137,7 @@ public class Repo {
             JPanel panel = new JPanel();
             panel.setVisible(true);
             panel.setLayout(null);
-            panel.setBackground(new Color(196, 196, 196));
+            panel.setBackground(new Color(41, 41, 41));
 
             JButton dirChoose = new JButton("Choose");
             dirChoose.setBackground(MaterialColors.GRAY_600);

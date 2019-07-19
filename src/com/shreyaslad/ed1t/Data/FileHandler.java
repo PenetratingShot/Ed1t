@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileHandler {
-    private static String dirPath = "";
+    private static String dirPath;
 
     public static String getDirPath() {
         return dirPath;
