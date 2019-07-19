@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd49054a-e731-4d1e-a2bc-900d17e028c4" name="Default Changelist" comment="" />
+    <list default="true" id="cd49054a-e731-4d1e-a2bc-900d17e028c4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Commands/Events$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Commands/Events$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Commands/Events$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Commands/Events.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Commands/OS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Commands/Repo$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Commands/Repo$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Commands/Repo$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Commands/Repo$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Commands/Repo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Components/Card.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Components/LineNumberingTextArea.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Components/PlaceholderTextField.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Components/Tree/CreateChildNodes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Components/Tree/FileNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Data/BranchList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Data/FileContents.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Data/FileHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Data/RemoteList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Data/SelectedFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Ed1t$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Ed1t$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Ed1t$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Ed1t$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Ed1t$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/Ed1t.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ed1t/com/shreyaslad/ed1t/run.sh" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,15 +59,13 @@
     <favorites_list name="ed1t" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/shreyaslad/ed1t/Ed1t.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="567" column="20" selection-start-line="567" selection-start-column="20" selection-end-line="567" selection-end-column="20" />
+            <state relative-caret-position="357">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
               <folding>
-                <element signature="e#0#23850#0" expanded="true" />
-                <element signature="imports" expanded="true" />
                 <element signature="e#23746#23747#0" expanded="true" />
                 <element signature="e#23781#23782#0" expanded="true" />
               </folding>
@@ -47,18 +74,17 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ed1t.eml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/shreyaslad/ed1t/Data/FileHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="273">
+              <caret line="49" selection-start-line="49" selection-end-line="49" />
               <folding>
-                <element signature="e#238#239#0" expanded="true" />
-                <element signature="e#268#269#0" expanded="true" />
-                <element signature="e#318#319#0" expanded="true" />
-                <element signature="e#348#349#0" expanded="true" />
                 <element signature="method#serialize#0;class#FileHandler#0" />
-                <element signature="e#388#439#0" />
-                <element signature="e#537#1543#0" />
               </folding>
             </state>
           </provider>
@@ -149,43 +175,21 @@
               <item name="ed1t" type="b2602c69:ProjectViewProjectNode" />
               <item name="ed1t" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ed1t" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ed1t" type="b2602c69:ProjectViewProjectNode" />
               <item name="ed1t" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ed1t" type="462c0819:PsiDirectoryNode" />
-              <item name="Commands" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ed1t" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ed1t" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ed1t" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ed1t" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ed1t" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ed1t" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Tree" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ed1t" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ed1t" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ed1t" type="462c0819:PsiDirectoryNode" />
-              <item name="Data" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="shreyaslad" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -194,6 +198,9 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -236,6 +243,7 @@
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$PROJECT_DIR$/../.cargo/bin" />
+    <option name="version" value="2" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -250,7 +258,9 @@
       <workItem from="1563258234563" duration="1119000" />
       <workItem from="1563307362321" duration="1313000" />
       <workItem from="1563309277842" duration="5185000" />
-      <workItem from="1563320023480" duration="20158000" />
+      <workItem from="1563320023480" duration="20318000" />
+      <workItem from="1563569859493" duration="95000" />
+      <workItem from="1563572996759" duration="195000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed some things. First start is hopeless">
       <created>1563312173990</created>
@@ -291,13 +301,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27775000" />
+    <option name="totallyTimeSpent" value="28225000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="807" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5474061" visible="true" weight="0.23104435" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.5474061" visible="true" weight="0.23676682" />
       <window_info id="Structure" order="1" sideWeight="0.45259392" side_tool="true" weight="0.22460657" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -460,29 +469,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/shreyaslad/ed1t/Data/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#983#984#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-            <element signature="e#1082#1083#0" expanded="true" />
-            <element signature="e#1121#1122#0" expanded="true" />
-            <element signature="e#1307#1308#0" expanded="true" />
-            <element signature="e#1344#1345#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/shreyaslad/ed1t/Commands/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/shreyaslad/ed1t/Data/Config.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/shreyaslad/ed1t/Commands/Config.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.jdk/Contents/Home/lib/src.zip!/java.desktop/java/awt/event/ActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="472">
@@ -595,34 +583,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/shreyaslad/ed1t/Data/FileHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="e#238#239#0" expanded="true" />
-            <element signature="e#268#269#0" expanded="true" />
-            <element signature="e#318#319#0" expanded="true" />
-            <element signature="e#348#349#0" expanded="true" />
-            <element signature="method#serialize#0;class#FileHandler#0" />
-            <element signature="e#388#439#0" />
-            <element signature="e#537#1543#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shreyaslad/ed1t/Ed1t.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="567" column="20" selection-start-line="567" selection-start-column="20" selection-end-line="567" selection-end-column="20" />
+        <state relative-caret-position="357">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
           <folding>
-            <element signature="e#0#23850#0" expanded="true" />
-            <element signature="imports" expanded="true" />
             <element signature="e#23746#23747#0" expanded="true" />
             <element signature="e#23781#23782#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ed1t.eml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/shreyaslad/ed1t/Data/FileHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="method#serialize#0;class#FileHandler#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>ed1t</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
