@@ -14,4 +14,4 @@ Using eclipse? idk
 
 ## License
 
-None. I should probably get one, but who's going to use this anyway?
+MIT. yoink
