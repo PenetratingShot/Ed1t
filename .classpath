@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/ed1t/src"/>
+	<classpathentry kind="lib" path="/Users/shreyaslad/Downloads/material-ui-swing.jar"/>
+	<classpathentry kind="lib" path="/Users/shreyaslad/Downloads/swingx-1.6.jar"/>
+	<classpathentry kind="lib" path="/Users/shreyaslad/Downloads/org.eclipse.jgit-5.4.0.201906121030-r.jar"/>
+	<classpathentry kind="lib" path="/Users/shreyaslad/Downloads/commons-validator-1.6/commons-validator-1.6.jar"/>
+	<classpathentry kind="lib" path="/Users/shreyaslad/Downloads/logback-core-0.9.6.jar"/>
+	<classpathentry kind="lib" path="/Users/shreyaslad/Downloads/ch.qos.logback.classic-0.9.28.jar"/>
+	<classpathentry kind="lib" path="/Users/shreyaslad/Downloads/slf4j-api-2.0.0-alpha0.jar"/>
+	<classpathentry kind="lib" path="/Users/shreyaslad/Downloads/bcpg-jdk15on-1.48.jar"/>
+	<classpathentry kind="lib" path="/Users/shreyaslad/Downloads/bcpg-jdk15-1.45.jar"/>
+	<classpathentry kind="lib" path="/Users/shreyaslad/Downloads/bcprov-jdk16-1.45.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd49054a-e731-4d1e-a2bc-900d17e028c4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Commands/Events.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Commands/Events.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Commands/Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Commands/Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Components/LineNumberingTextArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Components/LineNumberingTextArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Components/PlaceholderTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Components/PlaceholderTextField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Data/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Data/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Data/SelectedFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Data/SelectedFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Ed1t.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shreyaslad/ed1t/Ed1t.java" afterDir="false" />
-    </list>
+    <list default="true" id="cd49054a-e731-4d1e-a2bc-900d17e028c4" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -258,7 +250,7 @@
       <workItem from="1563258234563" duration="1119000" />
       <workItem from="1563307362321" duration="1313000" />
       <workItem from="1563309277842" duration="5185000" />
-      <workItem from="1563320023480" duration="19984000" />
+      <workItem from="1563320023480" duration="20158000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed some things. First start is hopeless">
       <created>1563312173990</created>
@@ -299,7 +291,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27601000" />
+    <option name="totallyTimeSpent" value="27775000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="807" extended-state="6" />
